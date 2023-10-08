@@ -140,4 +140,5 @@ module.exports = {
   getUpdatedPlayerList,
   addRound,
   getUpdatedRounds,
+  persistPlayers,
 }

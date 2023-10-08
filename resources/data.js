@@ -129,9 +129,9 @@ class Recipe {
 }
 
 class Player {
-  constructor(id, name, email) {
+  constructor(id, email) {
     this.id = id
-    this.name = name
+    this.name = ''
     this.email = email
     this.points = 0
     this.answer = ''

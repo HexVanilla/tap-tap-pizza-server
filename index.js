@@ -8,6 +8,7 @@ const {
   getUpdatedPlayerList,
   addRound,
   getUpdatedRounds,
+  persistPlayers,
 } = require('./resources/gameLogic')
 
 app.use('/icons', express.static(path.join(__dirname, 'resources/icons')))
@@ -61,9 +62,38 @@ firstRound()
 io.on('connection', (socket) => {
   console.log(socket.id)
 
+  socket.on('onMyPlayer', async (data, ackCallback) => {
+    try {
+      console.log('onMyPlayer', data)
+      let players = getUpdatedPlayerList()
+      if (players[data.uid]) {
+        ackCallback({
+          points: players[data.uid].points,
+          nickname: players[data.uid].name,
+        })
+      }
+    } catch (error) {
+      console.log(`Error handling my player data, ${error}`)
+    }
+  })
+
+  socket.on('setNickname', async (data, ackCallback) => {
+    try {
+      let players = getUpdatedPlayerList()
+      if (players[data.uid]) {
+        players[data.uid].name = data.nickname
+      }
+      persistPlayers(players[data.uid])
+      let updatePlayers = getUpdatedPlayerList()
+      ackCallback({ nickname: updatePlayers[data.uid].name })
+    } catch (error) {
+      console.log(`Error seting users nickname, ${error}`)
+    }
+  })
+
   socket.on('onGame', async (data, ackCallback) => {
     try {
-      //Check if data is valid and player isnt already created then ads new player
+      //Check if data is valid (not {}) and player isnt already created then ads new player
       if (Object.keys(data).length > 0) {
         let newPlayer = new Player(data.uid, '', data.email)
         let players = getUpdatedPlayerList()
