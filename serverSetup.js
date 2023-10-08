@@ -8,7 +8,7 @@ const io = new Server(httpServer, {
   cors: {
     credentials: true,
     methods: ['GET', 'POST'],
-    origin: 'http://localhost:5173',
+    origin: 'https://tap-tap-pizza-client.vercel.app/',
   },
 })
 
