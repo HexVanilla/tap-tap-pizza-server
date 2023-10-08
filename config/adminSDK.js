@@ -6,8 +6,6 @@ let privateKey = Buffer.from(privateKeyBase64, 'base64').toString('utf-8')
 
 privateKey = privateKey.trim()
 
-console.log(privateKey)
-
 const adminConfig = {
   type: process.env.FIREBASE_TYPE,
   project_id: process.env.FIREBASE_PROJECT_ID,
@@ -21,7 +19,6 @@ const adminConfig = {
   client_x509_cert_url: process.env.FIREBASE_X509_CERT_URL,
   universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN,
 }
-console.log('adminConfig', adminConfig)
 admin.initializeApp({
   credential: admin.credential.cert({
     type: adminConfig.type,
