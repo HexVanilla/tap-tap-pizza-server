@@ -17,6 +17,7 @@ const adminConfig = {
   client_x509_cert_url: process.env.FIREBASE_X509_CERT_URL,
   universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN,
 }
+console.log('adminConfig', adminConfig)
 admin.initializeApp({
   credential: admin.credential.cert({
     type: adminConfig.type,
