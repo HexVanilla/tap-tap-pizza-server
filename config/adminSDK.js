@@ -4,6 +4,8 @@ const admin = require('firebase-admin')
 const privateKeyBase64 = process.env.FIREBASE_PRIVATE_KEY
 const privateKey = Buffer.from(privateKeyBase64, 'base64').toString('utf-8')
 
+console.log(privateKey)
+
 const adminConfig = {
   type: process.env.FIREBASE_TYPE,
   project_id: process.env.FIREBASE_PROJECT_ID,
