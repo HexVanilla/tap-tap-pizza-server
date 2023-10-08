@@ -56,6 +56,7 @@ function firstRound() {
   }
 }
 
+//Server Start
 fetchPlayerData()
 firstRound()
 
@@ -84,7 +85,7 @@ io.on('connection', (socket) => {
         players[data.uid].name = data.nickname
       }
       persistPlayers(players[data.uid])
-      let updatePlayers = getUpdatedPlayerList()
+      //let updatePlayers = getUpdatedPlayerList()
       ackCallback({ nickname: updatePlayers[data.uid].name })
     } catch (error) {
       console.log(`Error seting users nickname, ${error}`)
@@ -119,11 +120,11 @@ io.on('connection', (socket) => {
       let currentRound = getCurrentRound()
       if (currentRound.status === 'running') {
         let players = getUpdatedPlayerList()
-        if (players[data.playerId]) {
-          players[data.playerId].answer = data.answer
-          players[data.playerId].recipeAckTimestamp = data.recipeAckTimestamp
-          players[data.playerId].answerTimestamp = data.answerTimestamp
-          checkAnswer(currentRound, players[data.playerId])
+        if (players[data.uid]) {
+          players[data.uid].answer = data.answer
+          players[data.uid].recipeAckTimestamp = data.recipeAckTimestamp
+          players[data.uid].answerTimestamp = data.answerTimestamp
+          checkAnswer(currentRound, players[data.uid])
           ackCallback({
             res: 'answer received',
           })
@@ -138,6 +139,26 @@ io.on('connection', (socket) => {
       }
     } catch (error) {
       console.log(`Error handling player answer, ${error}`)
+    }
+  })
+
+  socket.on('onLeaderboard', async (data, ackCallback) => {
+    try {
+      let players = getUpdatedPlayerList()
+      if (players[data.uid]) {
+        ackCallback({
+          players: players,
+          playerNickname: players[data.uid].name,
+        })
+      } else {
+        console.log('Leaderboard- Player doesnt exists')
+        ackCallback({
+          players: players,
+          playerNickname: '',
+        })
+      }
+    } catch (error) {
+      console.log(`Error handling leaderboard data, ${error}`)
     }
   })
 })

@@ -38,7 +38,7 @@ function startNewRound(prevRound) {
 
 function makeRecipe() {
   try {
-    const ingredientsNumber = getRandomInt(3, 13)
+    const ingredientsNumber = getRandomInt(3, 5) //3,13
     const ingredientsList = []
     const usedNumbers = []
     while (ingredientsList.length < ingredientsNumber) {
@@ -87,8 +87,9 @@ function checkAnswer(currentRound, playerData) {
         console.log('First Correct Answer!, Next Round in 3...')
         setTimeout(() => {
           pickWinner(currentRound)
-        }, 4000)
+        }, 8000)
       } else {
+        console.log('Another Correct answer')
         currentRound.addToCorrectAnswers(playerData)
       }
     }
@@ -99,7 +100,34 @@ function checkAnswer(currentRound, playerData) {
 
 function pickWinner(currentRound) {
   console.log('Pick Winner')
-  currentRound.setWinner(currentRound.correct[0].id)
+  //currentRound.setWinner(currentRound.correct[0].id)
+
+  let playerToTime = {}
+  console.log('correct Round', currentRound)
+  console.log('correct list', currentRound.correct)
+
+  currentRound.correct.forEach((player) => {
+    playerToTime[player.id] = {
+      id: player.id,
+      time: player.answerTimestamp - player.recipeAckTimestamp,
+    }
+  })
+
+  console.log('playerToTime', playerToTime)
+
+  let ptt = Object.values(playerToTime)
+  let fastestPlayer = ptt[0]
+  const winner = () => {
+    for (let i = 1; i < ptt.length; i++) {
+      if (ptt[i].time < fastestPlayer.time) fastestPlayer = ptt[i]
+    }
+  }
+  winner()
+
+  console.log('winner', fastestPlayer)
+
+  currentRound.setWinner(fastestPlayer.id)
+  //Assign points go to next round
   if (players[currentRound.winner]) {
     players[currentRound.winner].points += 10
     io.emit('roundWinner', {
