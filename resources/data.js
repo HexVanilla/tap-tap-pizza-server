@@ -1,88 +1,88 @@
 const pizzaBase = {
-  img: 'http://localhost:3000/toppings/base-pizza.png',
+  img: '/toppings/base-pizza.png',
 }
 
 const ingredients = {
   anchovies: {
     name: 'anchovies',
-    toppings: 'http://localhost:3000/toppings/anchovies.png',
-    icon: 'http://localhost:3000/icons/anchovies.png',
+    toppings: '/toppings/anchovies.png',
+    icon: '/icons/anchovies.png',
   },
   beef: {
     name: 'beef',
-    toppings: 'http://localhost:3000/toppings/beef.png',
-    icon: 'http://localhost:3000/icons/beef.png',
+    toppings: '/toppings/beef.png',
+    icon: '/icons/beef.png',
   },
   bacon: {
     name: 'bacon',
-    toppings: 'http://localhost:3000/toppings/bacon.png',
-    icon: 'http://localhost:3000/icons/bacon.png',
+    toppings: '/toppings/bacon.png',
+    icon: '/icons/bacon.png',
   },
   chicken: {
     name: 'chicken',
-    toppings: 'http://localhost:3000/toppings/chicken.png',
-    icon: 'http://localhost:3000/icons/chicken.png',
+    toppings: '/toppings/chicken.png',
+    icon: '/icons/chicken.png',
   },
   corn: {
     name: 'corn',
-    toppings: 'http://localhost:3000/toppings/corn.png',
-    icon: 'http://localhost:3000/icons/corn.png',
+    toppings: '/toppings/corn.png',
+    icon: '/icons/corn.png',
   },
   green_pepper: {
     name: 'green_pepper',
-    toppings: 'http://localhost:3000/toppings/green_pepper.png',
-    icon: 'http://localhost:3000/icons/green_pepper.png',
+    toppings: '/toppings/green_pepper.png',
+    icon: '/icons/green_pepper.png',
   },
   ham: {
     name: 'ham',
-    toppings: 'http://localhost:3000/toppings/ham.png',
-    icon: 'http://localhost:3000/icons/ham.png',
+    toppings: '/toppings/ham.png',
+    icon: '/icons/ham.png',
   },
   mushrooms: {
     name: 'mushrooms',
-    toppings: 'http://localhost:3000/toppings/mushrooms.png',
-    icon: 'http://localhost:3000/icons/mushrooms.png',
+    toppings: '/toppings/mushrooms.png',
+    icon: '/icons/mushrooms.png',
   },
   olives: {
     name: 'olives',
-    toppings: 'http://localhost:3000/toppings/olives.png',
-    icon: 'http://localhost:3000/icons/olives.png',
+    toppings: '/toppings/olives.png',
+    icon: '/icons/olives.png',
   },
   onions: {
     name: 'onions',
-    toppings: 'http://localhost:3000/toppings/onions.png',
-    icon: 'http://localhost:3000/icons/onions.png',
+    toppings: '/toppings/onions.png',
+    icon: '/icons/onions.png',
   },
   pepperoni: {
     name: 'pepperoni',
-    toppings: 'http://localhost:3000/toppings/pepperoni.png',
-    icon: 'http://localhost:3000/icons/pepperoni.png',
+    toppings: '/toppings/pepperoni.png',
+    icon: '/icons/pepperoni.png',
   },
   pineapple: {
     name: 'pineapple',
-    toppings: 'http://localhost:3000/toppings/pineapple.png',
-    icon: 'http://localhost:3000/icons/pineapple.png',
+    toppings: '/toppings/pineapple.png',
+    icon: '/icons/pineapple.png',
   },
 
   red_pepper: {
     name: 'red_pepper',
-    toppings: 'http://localhost:3000/toppings/red_pepper.png',
-    icon: 'http://localhost:3000/icons/red_pepper.png',
+    toppings: '/toppings/red_pepper.png',
+    icon: '/icons/red_pepper.png',
   },
   shrimp: {
     name: 'shrimp',
-    toppings: 'http://localhost:3000/toppings/shrimp.png',
-    icon: 'http://localhost:3000/icons/shrimp.png',
+    toppings: '/toppings/shrimp.png',
+    icon: '/icons/shrimp.png',
   },
   tomato: {
     name: 'tomato',
-    toppings: 'http://localhost:3000/toppings/tomato.png',
-    icon: 'http://localhost:3000/icons/tomato.png',
+    toppings: '/toppings/tomato.png',
+    icon: '/icons/tomato.png',
   },
   yellow_jalapeno: {
     name: 'yellow_jalapeno',
-    toppings: 'http://localhost:3000/toppings/yellow_jalapeno.png',
-    icon: 'http://localhost:3000/icons/yellow_jalapeno.png',
+    toppings: '/toppings/yellow_jalapeno.png',
+    icon: '/icons/yellow_jalapeno.png',
   },
 }
 
