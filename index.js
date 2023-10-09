@@ -80,6 +80,8 @@ io.on('connection', (socket) => {
 
   socket.on('setNickname', async (data, ackCallback) => {
     try {
+      console.log('atSetNickname', data)
+
       let players = getUpdatedPlayerList()
       if (players[data.uid]) {
         players[data.uid].name = data.nickname
