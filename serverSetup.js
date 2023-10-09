@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 app.use(
   cors({
-    origin: /^https:\/\/tap-tap-pizza-client(-[a-z0-9]+)?\.vercel\.app$/,
+    origin: 'https://elconejo.info',
     credentials: true,
     methods: ['GET', 'POST'],
   })
@@ -16,7 +16,7 @@ const io = new Server(httpServer, {
   cors: {
     credentials: true,
     methods: ['GET', 'POST'],
-    origin: '*', //localhost:5173
+    origin: 'https://elconejo.info', //localhost:5173
   },
 })
 
