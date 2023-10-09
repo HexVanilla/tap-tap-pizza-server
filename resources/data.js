@@ -1,5 +1,5 @@
 const pizzaBase = {
-  img: '/toppings/base-pizza.png',
+  img: './toppings/base-pizza.png',
 }
 
 const ingredients = {
