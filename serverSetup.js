@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 app.use(
   cors({
-    origin: 'https://elconejo.info',
+    origin: ['https://www.elconejo.info', 'https://elconejo.info'],
     credentials: true,
     methods: ['GET', 'POST'],
   })
@@ -16,7 +16,7 @@ const io = new Server(httpServer, {
   cors: {
     credentials: true,
     methods: ['GET', 'POST'],
-    origin: 'https://elconejo.info', //localhost:5173
+    origin: ['https://www.elconejo.info', 'https://elconejo.info'], //localhost:5173
   },
 })
 
