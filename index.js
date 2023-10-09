@@ -60,8 +60,20 @@ function firstRound() {
 fetchPlayerData()
 firstRound()
 
-io.on('connection', (socket) => {
-  console.log(socket.id)
+io.on('connection', async (socket) => {
+  try {
+    const sockets = await io.fetchSockets()
+    console.log(`A user connected. Total connections: ${sockets.length}`)
+  } catch (error) {
+    console.log(`Error fetching sockets, ${error}`)
+  }
+
+  socket.on('disconnect', (reason) => {
+    console.log('Socket disconnected due to:', reason)
+    if (reason === 'io server disconnect') {
+      socket.connect() // Try to reconnect if server caused the disconnect
+    }
+  })
 
   socket.on('onMyPlayer', async (data, ackCallback) => {
     try {

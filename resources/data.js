@@ -1,88 +1,88 @@
 const pizzaBase = {
-  img: 'https://143.110.151.199/toppings/base-pizza.png',
+  img: 'https://api.elconejo.info/toppings/base-pizza.png',
 }
 
 const ingredients = {
   anchovies: {
     name: 'anchovies',
-    toppings: 'https://143.110.151.199/toppings/anchovies.png',
-    icon: 'https://143.110.151.199/icons/anchovies.png',
+    toppings: 'https://api.elconejo.info/toppings/anchovies.png',
+    icon: 'https://api.elconejo.info/icons/anchovies.png',
   },
   beef: {
     name: 'beef',
-    toppings: 'https://143.110.151.199/toppings/beef.png',
-    icon: 'https://143.110.151.199/icons/beef.png',
+    toppings: 'https://api.elconejo.info/toppings/beef.png',
+    icon: 'https://api.elconejo.info/icons/beef.png',
   },
   bacon: {
     name: 'bacon',
-    toppings: 'https://143.110.151.199/toppings/bacon.png',
-    icon: 'https://143.110.151.199/icons/bacon.png',
+    toppings: 'https://api.elconejo.info/toppings/bacon.png',
+    icon: 'https://api.elconejo.info/icons/bacon.png',
   },
   chicken: {
     name: 'chicken',
-    toppings: 'https://143.110.151.199/toppings/chicken.png',
-    icon: 'https://143.110.151.199/icons/chicken.png',
+    toppings: 'https://api.elconejo.info/toppings/chicken.png',
+    icon: 'https://api.elconejo.info/icons/chicken.png',
   },
   corn: {
     name: 'corn',
-    toppings: 'https://143.110.151.199/toppings/corn.png',
-    icon: 'https://143.110.151.199/icons/corn.png',
+    toppings: 'https://api.elconejo.info/toppings/corn.png',
+    icon: 'https://api.elconejo.info/icons/corn.png',
   },
   green_pepper: {
     name: 'green_pepper',
-    toppings: 'https://143.110.151.199/toppings/green_pepper.png',
-    icon: 'https://143.110.151.199/icons/green_pepper.png',
+    toppings: 'https://api.elconejo.info/toppings/green_pepper.png',
+    icon: 'https://api.elconejo.info/icons/green_pepper.png',
   },
   ham: {
     name: 'ham',
-    toppings: 'https://143.110.151.199/toppings/ham.png',
-    icon: 'https://143.110.151.199/icons/ham.png',
+    toppings: 'https://api.elconejo.info/toppings/ham.png',
+    icon: 'https://api.elconejo.info/icons/ham.png',
   },
   mushrooms: {
     name: 'mushrooms',
-    toppings: 'https://143.110.151.199/toppings/mushrooms.png',
-    icon: 'https://143.110.151.199/icons/mushrooms.png',
+    toppings: 'https://api.elconejo.info/toppings/mushrooms.png',
+    icon: 'https://api.elconejo.info/icons/mushrooms.png',
   },
   olives: {
     name: 'olives',
-    toppings: 'https://143.110.151.199/toppings/olives.png',
-    icon: 'https://143.110.151.199/icons/olives.png',
+    toppings: 'https://api.elconejo.info/toppings/olives.png',
+    icon: 'https://api.elconejo.info/icons/olives.png',
   },
   onions: {
     name: 'onions',
-    toppings: 'https://143.110.151.199/toppings/onions.png',
-    icon: 'https://143.110.151.199/icons/onions.png',
+    toppings: 'https://api.elconejo.info/toppings/onions.png',
+    icon: 'https://api.elconejo.info/icons/onions.png',
   },
   pepperoni: {
     name: 'pepperoni',
-    toppings: 'https://143.110.151.199/toppings/pepperoni.png',
-    icon: 'https://143.110.151.199/icons/pepperoni.png',
+    toppings: 'https://api.elconejo.info/toppings/pepperoni.png',
+    icon: 'https://api.elconejo.info/icons/pepperoni.png',
   },
   pineapple: {
     name: 'pineapple',
-    toppings: 'https://143.110.151.199/toppings/pineapple.png',
-    icon: 'https://143.110.151.199/icons/pineapple.png',
+    toppings: 'https://api.elconejo.info/toppings/pineapple.png',
+    icon: 'https://api.elconejo.info/icons/pineapple.png',
   },
 
   red_pepper: {
     name: 'red_pepper',
-    toppings: 'https://143.110.151.199/toppings/red_pepper.png',
-    icon: 'https://143.110.151.199/icons/red_pepper.png',
+    toppings: 'https://api.elconejo.info/toppings/red_pepper.png',
+    icon: 'https://api.elconejo.info/icons/red_pepper.png',
   },
   shrimp: {
     name: 'shrimp',
-    toppings: 'https://143.110.151.199/toppings/shrimp.png',
-    icon: 'https://143.110.151.199/icons/shrimp.png',
+    toppings: 'https://api.elconejo.info/toppings/shrimp.png',
+    icon: 'https://api.elconejo.info/icons/shrimp.png',
   },
   tomato: {
     name: 'tomato',
-    toppings: 'https://143.110.151.199/toppings/tomato.png',
-    icon: 'https://143.110.151.199/icons/tomato.png',
+    toppings: 'https://api.elconejo.info/toppings/tomato.png',
+    icon: 'https://api.elconejo.info/icons/tomato.png',
   },
   yellow_jalapeno: {
     name: 'yellow_jalapeno',
-    toppings: 'https://143.110.151.199/toppings/yellow_jalapeno.png',
-    icon: 'https://143.110.151.199/icons/yellow_jalapeno.png',
+    toppings: 'https://api.elconejo.info/toppings/yellow_jalapeno.png',
+    icon: 'https://api.elconejo.info/icons/yellow_jalapeno.png',
   },
 }
 
