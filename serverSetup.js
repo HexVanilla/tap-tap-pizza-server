@@ -16,7 +16,7 @@ const io = new Server(httpServer, {
   cors: {
     credentials: true,
     methods: ['GET', 'POST'],
-    origin: '*', //localhost:5173
+    origin: 'https://elconejo.info', //localhost:5173
   },
 })
 
