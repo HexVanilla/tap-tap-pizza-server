@@ -1,5 +1,5 @@
 const pizzaBase = {
-  img: 'https://api.elconejo.info/toppings/base-pizza.png',
+  img: '/toppings/base-pizza.png',
 }
 
 const ingredients = {
