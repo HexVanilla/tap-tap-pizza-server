@@ -13,9 +13,15 @@ function getUpdatedRounds() {
   return rounds
 }
 
-function updatePlayers(newPlayer) {
+function updatePlayer(newPlayer) {
   console.log('newPlayer', newPlayer)
   players[newPlayer.id] = { ...newPlayer }
+  console.log('newPlayers', players)
+}
+
+function updateAllPlayers(allPlayers) {
+  console.log('oldPlayers', players)
+  players = allPlayers
   console.log('newPlayers', players)
 }
 
@@ -164,7 +170,8 @@ function persistPlayers(player) {
 module.exports = {
   startNewRound,
   checkAnswer,
-  updatePlayers,
+  updatePlayer,
+  updateAllPlayers,
   getUpdatedPlayerList,
   addRound,
   getUpdatedRounds,

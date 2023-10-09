@@ -4,7 +4,8 @@ const { db, getSnapshot } = require('./config/adminSDK')
 const {
   startNewRound,
   checkAnswer,
-  updatePlayers,
+  updatePlayer,
+  updateAllPlayers,
   getUpdatedPlayerList,
   addRound,
   getUpdatedRounds,
@@ -23,7 +24,7 @@ async function fetchPlayerData() {
       const persistedPlayers = snapshot.val()
       // Directly assign the object from Firebase to the rooms variable
       let pPlayers = { ...persistedPlayers }
-      updatePlayers(pPlayers)
+      updateAllPlayers(pPlayers)
       let players = getUpdatedPlayerList()
       console.log('players at index', players)
     } else {
@@ -86,7 +87,7 @@ io.on('connection', async (socket) => {
         })
       } else {
         const newPlayer = new Player(data.uid, data.email)
-        updatePlayers(newPlayer)
+        updatePlayer(newPlayer)
         ackCallback({
           points: newPlayer.points,
           nickname: newPlayer.name,
