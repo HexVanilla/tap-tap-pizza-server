@@ -3,10 +3,12 @@ const { createServer } = require('http')
 const { Server } = require('socket.io')
 const cors = require('cors')
 
+const originPath = ['https://www.elconejo.info', 'https://elconejo.info'] //['https://www.elconejo.info', 'https://elconejo.info'] - http://localhost:5173
+
 const app = express()
 app.use(
   cors({
-    origin: ['https://www.elconejo.info', 'https://elconejo.info'],
+    origin: originPath,
     credentials: true,
     methods: ['GET', 'POST'],
   })
@@ -16,7 +18,7 @@ const io = new Server(httpServer, {
   cors: {
     credentials: true,
     methods: ['GET', 'POST'],
-    origin: ['https://www.elconejo.info', 'https://elconejo.info'], //localhost:5173
+    origin: originPath,
   },
 })
 
