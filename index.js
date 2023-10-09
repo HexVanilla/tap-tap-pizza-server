@@ -76,8 +76,8 @@ io.on('connection', (socket) => {
         const newPlayer = new Player(data.uid, data.email)
         updatePlayers(newPlayer)
         ackCallback({
-          points: newPlayer[data.uid].points,
-          nickname: newPlayer[data.uid].name,
+          points: newPlayer.points,
+          nickname: newPlayer.name,
         })
       }
     } catch (error) {
