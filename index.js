@@ -72,6 +72,13 @@ io.on('connection', (socket) => {
           points: players[data.uid].points,
           nickname: players[data.uid].name,
         })
+      } else {
+        const newPlayer = new Player(data.uid, data.email)
+        updatePlayers(newPlayer)
+        ackCallback({
+          points: newPlayer[data.uid].points,
+          nickname: newPlayer[data.uid].name,
+        })
       }
     } catch (error) {
       console.log(`Error handling my player data, ${error}`)
@@ -87,8 +94,7 @@ io.on('connection', (socket) => {
         players[data.uid].name = data.nickname
       }
       persistPlayers(players[data.uid])
-      //let updatePlayers = getUpdatedPlayerList()
-      ackCallback({ nickname: updatePlayers[data.uid].name })
+      ackCallback({ nickname: players[data.uid].name })
     } catch (error) {
       console.log(`Error seting users nickname, ${error}`)
     }

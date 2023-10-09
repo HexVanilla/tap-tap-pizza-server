@@ -13,10 +13,10 @@ function getUpdatedRounds() {
   return rounds
 }
 
-function updatePlayers(newPlayers) {
-  console.log('newPlayers', newPlayers)
-  players = newPlayers
-  console.log('newPlayers++', players)
+function updatePlayers(newPlayer) {
+  console.log('newPlayer', newPlayer)
+  players[newPlayer.id] = { ...newPlayer }
+  console.log('newPlayers', players)
 }
 
 function getUpdatedPlayerList() {
