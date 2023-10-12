@@ -44,7 +44,7 @@ function startNewRound(prevRound) {
 
 function makeRecipe() {
   try {
-    const ingredientsNumber = getRandomInt(3, 5) //3,13
+    const ingredientsNumber = getRandomInt(3, 8) //3,13
     const ingredientsList = []
     const usedNumbers = []
     while (ingredientsList.length < ingredientsNumber) {
