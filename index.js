@@ -14,7 +14,7 @@ const {
 
 app.use('/icons', express.static(path.join(__dirname, 'resources/icons')))
 app.use('/toppings', express.static(path.join(__dirname, 'resources/toppings')))
-
+app.use('/ads', express.static(path.join(__dirname, 'resources/ads')))
 const { pizzaBase, ingredients, Round, Player } = require('./resources/data')
 
 async function fetchPlayerData() {

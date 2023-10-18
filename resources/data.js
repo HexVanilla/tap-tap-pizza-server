@@ -1,5 +1,14 @@
 const path = 'https://api.elconejo.info' //'https://api.elconejo.info' - http://localhost:3000
 
+const logo = `${path}/ads/TapTappizzaLogo.png`
+
+const adsPlacehoders = {
+  100_100: `${path}/ads/100x100.png`,
+  600_180: `${path}/ads/600x180.png`,
+  600_200: `${path}/ads/600x200.png`,
+  600_400: `${path}/ads/600x400.png`,
+}
+
 const pizzaBase = {
   img: `${path}/toppings/base-pizza.png`,
 }
@@ -141,4 +150,12 @@ class Player {
   }
 }
 
-module.exports = { pizzaBase, ingredients, Round, Recipe, Player }
+module.exports = {
+  logo,
+  adsPlacehoders,
+  pizzaBase,
+  ingredients,
+  Round,
+  Recipe,
+  Player,
+}
