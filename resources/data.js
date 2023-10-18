@@ -1,4 +1,4 @@
-const path = 'https://api.elconejo.info' //'https://api.elconejo.info' - http://localhost:3000
+const path = 'https://api.taptapizza.com' //'https://api.elconejo.info' - http://localhost:3000
 
 const logo = `${path}/ads/TapTappizzaLogo.png`
 
