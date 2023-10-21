@@ -115,6 +115,7 @@ function pickWinner(currentRound) {
   currentRound.correct.forEach((player) => {
     playerToTime[player.id] = {
       id: player.id,
+      name: player.name,
       time: player.answerTimestamp - player.recipeAckTimestamp,
     }
   })
@@ -132,7 +133,7 @@ function pickWinner(currentRound) {
 
   console.log('winner', fastestPlayer)
 
-  currentRound.setWinner(fastestPlayer.id)
+  currentRound.setWinner(fastestPlayer)
   //Assign points go to next round
   if (players[currentRound.winner]) {
     players[currentRound.winner].points += 10
