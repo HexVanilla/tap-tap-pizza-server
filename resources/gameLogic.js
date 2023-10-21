@@ -135,12 +135,12 @@ function pickWinner(currentRound) {
 
   currentRound.setWinner(fastestPlayer)
   //Assign points go to next round
-  if (players[currentRound.winner]) {
-    players[currentRound.winner].points += 10
+  if (players[currentRound.winner.id]) {
+    players[currentRound.winner.id].points += 10
     io.emit('roundWinner', {
       roundWinner: currentRound.winner,
     })
-    persistPlayers(players[currentRound.winner])
+    persistPlayers(players[currentRound.winner.id])
     finishRound(currentRound)
   } else {
     console.log('Winner- Player doesnt exists')
