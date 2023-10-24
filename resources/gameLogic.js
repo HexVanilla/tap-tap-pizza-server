@@ -5,6 +5,24 @@ const { io } = require('../serverSetup')
 const rounds = []
 let players = {}
 
+async function fetchPlayerData() {
+  try {
+    const snapshot = await getSnapshot('players')
+    if (snapshot.exists()) {
+      const persistedPlayers = snapshot.val()
+      // Directly assign the object from Firebase to the rooms variable
+      let pPlayers = { ...persistedPlayers }
+      updateAllPlayers(pPlayers)
+      let players = getUpdatedPlayerList()
+      console.log('players at index', players)
+    } else {
+      console.log('No players data available in database.')
+    }
+  } catch (error) {
+    console.error('Failed to fetch players data:', error)
+  }
+}
+
 function addRound(round) {
   rounds.push(round)
 }
@@ -140,8 +158,13 @@ function pickWinner(currentRound) {
     io.emit('roundWinner', {
       roundWinner: currentRound.winner,
     })
-    persistPlayers(players[currentRound.winner.id])
-    finishRound(currentRound)
+    try {
+      persistPlayers(players[currentRound.winner.id])
+      fetchPlayerData()
+      finishRound(currentRound)
+    } catch (error) {
+      console.log('Error Setting Winner ' + error)
+    }
   } else {
     console.log('Winner- Player doesnt exists')
   }
@@ -177,4 +200,5 @@ module.exports = {
   addRound,
   getUpdatedRounds,
   persistPlayers,
+  fetchPlayerData,
 }

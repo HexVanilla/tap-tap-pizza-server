@@ -10,30 +10,13 @@ const {
   addRound,
   getUpdatedRounds,
   persistPlayers,
+  fetchPlayerData,
 } = require('./resources/gameLogic')
 
 app.use('/icons', express.static(path.join(__dirname, 'resources/icons')))
 app.use('/toppings', express.static(path.join(__dirname, 'resources/toppings')))
 app.use('/ads', express.static(path.join(__dirname, 'resources/ads')))
 const { pizzaBase, ingredients, Round, Player } = require('./resources/data')
-
-async function fetchPlayerData() {
-  try {
-    const snapshot = await getSnapshot('players')
-    if (snapshot.exists()) {
-      const persistedPlayers = snapshot.val()
-      // Directly assign the object from Firebase to the rooms variable
-      let pPlayers = { ...persistedPlayers }
-      updateAllPlayers(pPlayers)
-      let players = getUpdatedPlayerList()
-      console.log('players at index', players)
-    } else {
-      console.log('No players data available in database.')
-    }
-  } catch (error) {
-    console.error('Failed to fetch players data:', error)
-  }
-}
 
 function getCurrentRound() {
   try {
