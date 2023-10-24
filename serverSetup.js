@@ -3,7 +3,7 @@ const { createServer } = require('http')
 const { Server } = require('socket.io')
 const cors = require('cors')
 
-const originPath = ['https://www.taptapizza.com', 'https://taptapizza.com'] //['https://www.elconejo.info', 'https://elconejo.info'] - http://localhost:5173
+const originPath = ['https://www.taptapizza.com', 'https://taptapizza.com'] //['https://www.taptapizza.com', 'https://taptapizza.com'] - http://localhost:5173
 
 const app = express()
 app.use(

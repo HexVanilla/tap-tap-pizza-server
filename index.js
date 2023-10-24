@@ -131,11 +131,11 @@ io.on('connection', async (socket) => {
           let answerResult = checkAnswer(currentRound, players[data.uid])
           if (answerResult === 'correct') {
             ackCallback({
-              res: 'answer received',
+              res: 'correct',
             })
           } else if (answerResult === 'wrong') {
             ackCallback({
-              res: 'wrong answer',
+              res: 'wrong',
             })
           } else {
             console.log('Error with answer result ' + answerResult)
