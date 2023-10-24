@@ -128,10 +128,18 @@ io.on('connection', async (socket) => {
           players[data.uid].answer = data.answer
           players[data.uid].recipeAckTimestamp = data.recipeAckTimestamp
           players[data.uid].answerTimestamp = data.answerTimestamp
-          checkAnswer(currentRound, players[data.uid])
-          ackCallback({
-            res: 'answer received',
-          })
+          let answerResult = checkAnswer(currentRound, players[data.uid])
+          if (answerResult === 'correct') {
+            ackCallback({
+              res: 'answer received',
+            })
+          } else if (answerResult === 'wrong') {
+            ackCallback({
+              res: 'wrong answer',
+            })
+          } else {
+            console.log('Error with answer result ' + answerResult)
+          }
         } else {
           console.log('Answer- Player doesnt exists')
         }

@@ -102,7 +102,7 @@ function checkAnswer(currentRound, playerData) {
           !currentRound.getRecipe().ingredients.includes(playerData.answer[i])
         ) {
           console.log('Wrong, Round still running')
-          return
+          return 'wrong'
         }
       }
       if (!currentRound.hasFirstAnswer) {
@@ -112,9 +112,11 @@ function checkAnswer(currentRound, playerData) {
         setTimeout(() => {
           pickWinner(currentRound)
         }, 8000)
+        return 'correct'
       } else {
         console.log('Another Correct answer')
         currentRound.addToCorrectAnswers(playerData)
+        return 'correct'
       }
     }
   } catch (error) {
