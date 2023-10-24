@@ -101,7 +101,7 @@ function checkAnswer(currentRound, playerData) {
         if (
           !currentRound.getRecipe().ingredients.includes(playerData.answer[i])
         ) {
-          console.log('Wrong, Round still running')
+          console.log('Wrong ingredients, Round still running')
           return 'wrong'
         }
       }
@@ -118,6 +118,9 @@ function checkAnswer(currentRound, playerData) {
         currentRound.addToCorrectAnswers(playerData)
         return 'correct'
       }
+    } else {
+      console.log('Wrong Length, Round still running')
+      return 'wrong'
     }
   } catch (error) {
     console.log('Error checking answers, ' + error)
