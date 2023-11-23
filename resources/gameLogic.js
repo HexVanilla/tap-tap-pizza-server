@@ -4,7 +4,23 @@ const { io } = require('../serverSetup')
 
 const rounds = []
 let players = {}
-
+const botNames = [
+  'SambaKing',
+  'FireFly',
+  'elRick',
+  'chavito',
+  'fufa',
+  'IncaGold',
+  'martita',
+  'sinDios',
+  'bruh',
+  'botMcbot',
+  'roland',
+  'pez23',
+  'frijolito',
+  'alan3',
+  'brito',
+]
 async function fetchPlayerData() {
   try {
     const snapshot = await getSnapshot('players')
@@ -54,9 +70,11 @@ function startNewRound(prevRound) {
     const newRound = new Round(roundNumber, recipe)
     newRound.startRound()
     rounds.push(newRound)
+    let botTimer = getRandomInt(10, 16)
+    botTimer *= 1000
     setTimeout(() => {
       botAnswer(newRound)
-    }, 10000)
+    }, botTimer)
     return newRound
   } catch (error) {
     console.log('Error starting a new round, ' + error)
@@ -94,9 +112,10 @@ function getRandomInt(a, b) {
 
 function botAnswer(currentRound) {
   console.log('bot answering...')
+  let randomPick = getRandomInt(0, botNames.length - 1)
   let bot = {
     id: '123456789',
-    name: 'bot',
+    name: botNames[randomPick],
     time: '0000',
   }
   currentRound.setWinner(bot)
