@@ -73,7 +73,7 @@ function startNewRound(prevRound) {
     const newRound = new Round(roundNumber, recipe)
     newRound.startRound()
     rounds.push(newRound)
-    let botTimer = getRandomInt(10, 16)
+    let botTimer = getRandomInt(12, 16)
     botTimer *= 1000
     setTimeout(() => {
       canBotAnswer(newRound)
