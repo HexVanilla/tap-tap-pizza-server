@@ -21,6 +21,8 @@ const botNames = [
   'alan3',
   'brito',
 ]
+let hasPlayerAnswered
+
 async function fetchPlayerData() {
   try {
     const snapshot = await getSnapshot('players')
@@ -65,6 +67,7 @@ function getUpdatedPlayerList() {
 
 function startNewRound(prevRound) {
   try {
+    hasPlayerAnswered = false
     const roundNumber = prevRound.number + 1
     const recipe = makeRecipe()
     const newRound = new Round(roundNumber, recipe)
@@ -73,12 +76,16 @@ function startNewRound(prevRound) {
     let botTimer = getRandomInt(10, 16)
     botTimer *= 1000
     setTimeout(() => {
-      botAnswer(newRound)
+      canBotAnswer(newRound)
     }, botTimer)
     return newRound
   } catch (error) {
     console.log('Error starting a new round, ' + error)
   }
+}
+
+function canBotAnswer(newRound) {
+  if (!hasPlayerAnswered) botAnswer(newRound)
 }
 
 function makeRecipe() {
@@ -144,10 +151,11 @@ function checkAnswer(currentRound, playerData) {
       if (!currentRound.hasFirstAnswer) {
         currentRound.setHasFirstAnswer()
         currentRound.addToCorrectAnswers(playerData)
+        hasPlayerAnswered = true
         console.log('First Correct Answer!, Next Round in 3...')
         setTimeout(() => {
           pickWinner(currentRound)
-        }, 8000)
+        }, 5000)
         return 'correct'
       } else {
         console.log('Another Correct answer')
