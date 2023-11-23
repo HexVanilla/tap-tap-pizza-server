@@ -54,6 +54,9 @@ function startNewRound(prevRound) {
     const newRound = new Round(roundNumber, recipe)
     newRound.startRound()
     rounds.push(newRound)
+    setTimeout(() => {
+      botAnswer(newRound)
+    }, 3000)
     return newRound
   } catch (error) {
     console.log('Error starting a new round, ' + error)
@@ -87,6 +90,17 @@ function getRandomInt(a, b) {
   const min = Math.ceil(a)
   const max = Math.floor(b)
   return Math.floor(Math.random() * (max - min) + min)
+}
+
+function botAnswer(currentRound) {
+  console.log('bot answering...')
+  let bot = {
+    id: '123456789',
+    name: 'bot',
+    time: '0000',
+  }
+  currentRound.setWinner(bot)
+  finishRound(currentRound)
 }
 
 function checkAnswer(currentRound, playerData) {
