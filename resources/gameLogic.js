@@ -85,7 +85,7 @@ function startNewRound(prevRound) {
 }
 
 function canBotAnswer(newRound) {
-  if (!hasPlayerAnswered) botAnswer(newRound)
+  if (!newRound.hasFirstAnswer) botAnswer(newRound)
 }
 
 function makeRecipe() {
