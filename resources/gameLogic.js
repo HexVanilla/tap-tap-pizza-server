@@ -56,7 +56,7 @@ function startNewRound(prevRound) {
     rounds.push(newRound)
     setTimeout(() => {
       botAnswer(newRound)
-    }, 3000)
+    }, 10000)
     return newRound
   } catch (error) {
     console.log('Error starting a new round, ' + error)
@@ -100,6 +100,9 @@ function botAnswer(currentRound) {
     time: '0000',
   }
   currentRound.setWinner(bot)
+  io.emit('roundWinner', {
+    roundWinner: currentRound.winner,
+  })
   finishRound(currentRound)
 }
 
